@@ -1,21 +1,24 @@
 #ifndef __HORIZON_FINDER_H__
 #define __HORIZON_FINDER_H__
 
+#include <vector>
+
 #include <opencv2/opencv.hpp>
-#include <ros/ros.h>
 
 namespace floordetection {
+
   class HorizonFinder {
     public:
-      HorizonFinder(ros::NodeHandle& ros_node);
+      HorizonFinder() = default;
 
       int find(const cv::Mat& input);
 
     private:
-      int subimages;
-      int last_horizon;
+      int subimages = 20;
+      int last_horizon = -1;
   
   };
+
 }
 
 #endif

@@ -1,25 +1,23 @@
 #ifndef __SEGMENTER_H__
 #define __SEGMENTER_H__
 
-#include <ros/ros.h>
 #include <opencv2/opencv.hpp>
-#include "segmenter.h"
+
+#include "disjoint_set.h"
 
 namespace floordetection {
+
   class Segmenter {
     public:
-      Segmenter(ros::NodeHandle& ros_node);
+      Segmenter() = default;
 
-      void save_parameters(void);
-      
       void segment(const cv::Mat& intput, cv::Mat& output);
 
-      double c_threshold;
-      int min_segment;
+      double c_threshold = 0.5;
+      int min_segment = 500;
 
-    private:
-      ros::NodeHandle& ros_node;
   };
+
 }
 
 

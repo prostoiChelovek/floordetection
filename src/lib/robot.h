@@ -1,21 +1,22 @@
 #ifndef __ROBOT_H__
 #define __ROBOT_H__
 
-#include <ros/ros.h>
+#include <iostream>
 
 namespace floordetection {
-  class Robot {
+
+    class Robot {
     public:
-      Robot(ros::NodeHandle& ros_node);
-      ~Robot(void);
-      
-      void set_speeds(float xspeed, float aspeed);
-      void stop(void);
-      
-    private:
-      ros::Publisher vel_pub;
-      ros::Subscriber odo_sub;
-  };
+        Robot() = default;
+
+        ~Robot();
+
+        void set_speeds(float xspeed, float aspeed);
+
+        void stop();
+
+    };
+
 }
 
 #endif
